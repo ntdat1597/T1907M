@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main(){
+
+    int a,b;
+    printf("nhap a=\n");
+    scanf("%d",&a);
+    printf("nhap b=\n");
+    scanf("%d",&b);
+    
+    if(a>b){
+    	printf("thuong la",a/b);
+    	
+	}else{
+		printf("tich la",a*b);
+	}
+	return 0;
+}
+		
+	
+	
+    
