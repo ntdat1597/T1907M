@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #ffffff;
+    font: 400 14px/18px 'Lato', sans-serif;
+    color: black;
+}
+header {
+    background-color: white;
+    padding: 30px 0;
+}
+.container{
+    width: 960px;
+    margin: 0 auto;
+}
+.trai{
+    width: 70%;
+    float: left;
+}
+.phai{
+    width: 30%;
+    float: left;
+}
+.phai li {
+    float: left;
+    margin-left: 20px;
+    list-style: none;
+}
+.phai li a{
+    text-decoration: none;
+}
+
+.contact{
+    width: 100%;
+    float: left;
+}
+.nameemail{
+    float: right;
+    width: 70%;
+}
+.section-trai{
+    float: left;
+    width: 30%;
+
+}
