@@ -1,0 +1,78 @@
+-- 1.TẠO DB.
+CREATE DATABASE luu_tru_san_pham;
+-- 2.Viết các câu lệnh để tạo các bảng như thiết kế câu 1
+
+CREATE TABLE SAN_PHAM(
+
+    TEN_HANG_SP   NVARCHAR (50) NOT NULL ,
+    MO_TA_HANG NVARCHAR (50) NOT NULL ,
+    DON_VI     NVARCHAR(50) NOT NULL,
+    GIA        INT NOT NULL,
+    SO_LUONG_HIEN_CO INT NOT NULL,
+    SO_DAU_SACH INT NOT NULL,
+    MA_HANG_ID  INT NOT NULL PRIMARY KEY
+
+);
+
+CREATE TABLE HANG_SAN_XUAT(
+    SAN_PHAM   NVARCHAR(50) NOT NULL,
+    DON_VI     NVARCHAR(20) NOT NULL,
+    GIA        INT          NOT NULL,
+    DIA_CHI    NVARCHAR(50) NOT NULL,
+    DIEN_THOAI INT          NOT NULL,
+    TEN_HANG NVARCHAR (20) NOT NULL,
+    MA_HANG_ID INT NOT NULL FOREIGN  KEY REFERENCES SAN_PHAM(MA_HANG_ID)
+
+);
+DROP TABLE SAN_PHAM;
+DROP TABLE HANG_SAN_XUAT;
+
+-- 3.Cho vào hai dữ liệu tưng tự như bảng đề bài trên
+--insert into SAN_PHAM.
+INSERT INTO SAN_PHAM(TEN_HANG_SP,MO_TA_HANG,DON_VI,GIA,SO_LUONG_HIEN_CO,MA_HANG_ID) VALUES (N'Máy TínhT450',N'Máy nhập cũ',N'Chiếc',1000,10,1);
+INSERT INTO SAN_PHAM(TEN_HANG_SP,MO_TA_HANG,DON_VI,GIA,SO_LUONG_HIEN_CO,MA_HANG_ID) VALUES (N'Điện ThoạiNokia5670',N'Điện thoại đang hot',N'Chiếc',400,200,2);
+INSERT INTO SAN_PHAM(TEN_HANG_SP,MO_TA_HANG,DON_VI,GIA,SO_LUONG_HIEN_CO,MA_HANG_ID) VALUES (N'Máy InSamsung 450',N'Máy in đang loại bình',N'Chiếc',200,10,3);
+INSERT INTO SAN_PHAM(TEN_HANG_SP,MO_TA_HANG,DON_VI,GIA,SO_LUONG_HIEN_CO,MA_HANG_ID) VALUES (N'Iphone XS mix',N'Máy nhập Mới',N'Chiếc',2100,100,4);
+
+SELECT * FROM SAN_PHAM;
+
+-- insert into HANG_SAN_XUAT.
+INSERT INTO HANG_SAN_XUAT(SAN_PHAM,DON_VI,GIA,DIA_CHI,DIEN_THOAI,TEN_HANG,MA_HANG_ID) VALUES (N'Iphone X',N'Chiếc',1500,'USA',124225436,'APPLE',1);
+INSERT INTO HANG_SAN_XUAT(SAN_PHAM,DON_VI,GIA,DIA_CHI,DIEN_THOAI,TEN_HANG,MA_HANG_ID) VALUES (N'Iphone XR',N'Chiếc',1300,'USA',222325437,'APPLE',2);
+INSERT INTO HANG_SAN_XUAT(SAN_PHAM,DON_VI,GIA,DIA_CHI,DIEN_THOAI,TEN_HANG,MA_HANG_ID) VALUES (N'Iphone XS',N'Chiếc',1900,'USA',222325438,'APPLE',3);
+INSERT INTO HANG_SAN_XUAT(SAN_PHAM,DON_VI,GIA,DIA_CHI,DIEN_THOAI,TEN_HANG,MA_HANG_ID) VALUES (N'IpHone XS Max',N'Chiếc',2100,'USA',422325439,'APPLE',4);
+
+SELECT * FROM HANG_SAN_XUAT;
+
+-- 4a.Hiển thị tất cả các hãng sản xuất.
+SELECT TEN_HANG FROM HANG_SAN_XUAT;
+
+-- 4b.Hiển thị tất cả các sản phẩm.
+SELECT TEN_HANG_SP FROM SAN_PHAM;
+
+-- 5.Viết các câu lệnh truy vấn để
+-- 5a.Liệt kê danh sách hãng theo thứ thự ngược với alphabet của tên.
+select MO_TA_HANG FROM SAN_PHAM ORDER BY MO_TA_HANG DESC ;
+-- 5b.Liệt kê danh sách sản phẩm của cửa hàng theo thứ thự giá giảm dần.
+SELECT TEN_HANG_SP FROM SAN_PHAM ORDER BY TEN_HANG_SP ASC ;
+-- 5.Liệt kê danh sách sản phẩm còn ít hơn 11 chiếc trong kho
+SELECT * FROM SAN_PHAM WHERE SO_LUONG_HIEN_CO < 11;
+
+-- 6.a.Số hãng sản phẩm mà cửa hàng có.
+SELECT COUNT(TEN_HANG_SP) FROM SAN_PHAM WHERE TEN_HANG_SP LIKE '%I%';
+-- 6.b.Số mặt hàng mà cửa hàng bán.
+SELECT TEN_HANG_SP FROM SAN_PHAM;
+-- 6.c.Tổng số loại sản phẩm của mỗi hãng có trong cửa hàng.
+SELECT sum(TEN_HANG_SP) FROM SAN_PHAM;
+--6.d.Tổng số đầu sản phẩm của toàn cửa hàng
+SELECT count(SO_LUONG_HIEN_CO) FROM SAN_PHAM WHERE SO_LUONG_HIEN_CO > 4;
+
+
+
+
+
+
+
+
+
+
