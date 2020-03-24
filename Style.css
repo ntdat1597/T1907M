@@ -1,0 +1,54 @@
+ORDER{
+    background-color: #cccccc;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    line-height: 1.6;
+}
+CONTACT{
+    display: flex;
+    flex-direction: row;
+}
+CUSTOMER{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+}
+SHIPPING_ADRESS{
+    flex-basis: 50%;
+    flex-grow: 1;
+}
+ITEMS{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    border: 1px solid white;
+
+}
+PRODUCT{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid white;
+
+}
+#product{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+NAME{
+    flex-basis: 40%;
+    border-right: 1px solid white;
+}
+PRICE{
+    flex-basis: 20%;
+    border-right: 1px solid white;
+    display: flex;
+    justify-content: center;
+}
+QTY{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+
+}
