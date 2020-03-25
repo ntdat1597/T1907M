@@ -1,0 +1,57 @@
+{
+  "location": {
+    "name": "London",
+    "type": null,
+    "country": "US",
+    "timezone": null,
+    "location": {
+      "altitude": 0,
+      "latitude": 37.129,
+      "longtitude": -90.321,
+      "geobase": 4298960
+    }
+  },
+  "credit": null,
+  "meta": {
+    "lastUpdate": null,
+    "calcTime": 0.0129,
+    "nextUpdate": null
+  },
+  "sun": {
+    "rise": "2019-03-27T11:29:39",
+    "set": "2019-03-27T23:53:58"
+  },
+  "forecast": {
+    "time": {
+      "from": "2019-03-27T23:53:58",
+      "to": "2019-03-27T23:53:58",
+      "symbol": {
+        "number": 800,
+        "name": "Clear sky",
+        "var": "01d"
+      },
+      "precipitation": null,
+      "windDirection": {
+        "deg": 239.233,
+        "code": "WSW",
+        "name": "West-southwest"
+      },
+      "windSpeed": {
+        "mps": 2.1,
+        "name": "light bezze"
+      },
+      "temperature": {
+        "unit": "kelvin",
+        "value": 278.18,
+        "minValue": 277.18,
+        "maxValue": 279.18
+      },
+      "pressure": "1027.572hPa",
+      "humidity": "100%",
+      "clounds": {
+        "sky": "clear sky",
+        "all": "0%"
+      }
+    }
+  }
+}

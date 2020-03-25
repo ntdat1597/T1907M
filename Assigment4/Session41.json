@@ -1,0 +1,16 @@
+{
+  "customer": {
+    "fistname": "Tony",
+    "lastname": "Stark",
+    "telephone": "0999999"
+  },
+  "grandTotal": 1833,
+  "shippingAdress": "No8. TON THAT THUYET",
+  "item": {
+    "product": {
+      "name": ["Khoai lang nuong", "Dau phong", "Lac rang"],
+      "price": [12, 14, 16],
+      "qty": [5, 6, 7]
+    }
+  }
+}

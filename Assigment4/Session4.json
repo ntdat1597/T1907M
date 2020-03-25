@@ -1,0 +1,12 @@
+{
+  "name": "Nguyen Van Quyet",
+  "age": 18,
+  "address": "Ha Noi",
+  "isMarried": false,
+  "cardNumber": null,
+  "telephone": ["123456","312312321"],
+  "subject": {
+    "name": "MakeupLangugeJSON",
+    "day": [2,4,6]
+  }
+}

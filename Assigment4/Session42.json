@@ -1,0 +1,53 @@
+{
+  "city": {
+    "id": 2643743,
+    "name": "London",
+    "coord": {
+      "lon": "-0.13",
+      "lat": "51.51"
+    },
+    "country": "GB",
+    "sun": {
+      "rise": "2017-01-30T07:40:36",
+      "set": "2017-01-30T16:47:56"
+    }
+  },
+  "temperature": {
+    "temp": 280.15,
+    "tempMin": 278.15,
+    "tempMã": 279.15,
+    "unit": "kelvin"
+  },
+  "humidity": "81%",
+  "pressure": "1012hPa",
+  "wind": {
+    "speed": {
+      "value": 4.6,
+      "name": "Gentle Breeze"
+    },
+    "gusts": null,
+    "direction": {
+      "value": 90,
+      "code": "E",
+      "name": "East"
+    }
+  },
+  "cloud": {
+    "value": 90,
+    "name": "over castcloud"
+  },
+  "visibility": {
+    "value": 1000
+  },
+  "precipititation": {
+    "mode": "no"
+  },
+  "weather": {
+    "number": 701,
+    "value": "miss",
+    "icon": "50d"
+  },
+  "lastUpdate": {
+    "value": "2017-01-30T15:50:00"
+  }
+}

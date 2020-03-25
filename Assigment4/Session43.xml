@@ -1,0 +1,28 @@
+<weatherdata>
+    <location>
+        <name>London</name>
+        <type/>
+        <country>US</country>
+        <timezone/>
+        <location altitude="0" latitude="37.129" longitude="-84.0833" geobase="geonames" geobaseid="4298960"/>
+    </location>
+    <credit/>
+    <meta>
+        <lastupdate/>
+        <calctime>0.0129</calctime>
+        <nextupdate/>
+    </meta>
+    <sun rise="2019-03-27T11:29:39" set="2019-03-27T23:53:38"/>
+    <forecast>
+        <time from="2019-03-27T15:00:00" to="2019-03-27T18:00:00">
+            <symbol number="800" name="clear sky" var="01d"/>
+            <precipitation/>
+            <windDirection deg="239.223" code="WSW" name="West-southwest"/>
+            <windSpeed mps="2.1" name="Light breeze"/>
+            <temperature unit="kelvin" value="287.78" min="287.78" max="288.558"/>
+            <pressure unit="hPa" value="1027.572"/>
+            <humidity value="100" unit="%"/>
+            <clouds value="clear sky" all="0" unit="%"/>
+        </time>
+    </forecast>
+</weatherdata>
