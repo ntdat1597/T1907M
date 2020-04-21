@@ -7,13 +7,17 @@ namespace Demo.Lab2
         public static void Main(string[] args)
         { 
             Product product = new Product();
-            int chose = 0;
+           Fashion fashion = new Fashion();
+           Diamon diamon = new Diamon();
+                int chose = 0;
             int _id;
             string _name;
             double _price;
             int _qty;
             string _image;
             string _desc;
+            string color;
+            string size;
             do
                 {
                     Console.WriteLine("1. Addproduct");
@@ -43,9 +47,12 @@ namespace Demo.Lab2
                             break;
                         case 2:
                             product.GetInfo();
+                            
                             break;
                         case 3:
                            product.CheckStock();
+                           fashion.KiemTrasSanPham();
+                           //     diamon.KiemTraHangThatGia();
                             break;
                         case 4:
                             product.AddImage();
