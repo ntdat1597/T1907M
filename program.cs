@@ -1,30 +1,60 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Net.Sockets;
+using ConsoleApp.Lab2;
 
-namespace Demo
+namespace ConsoleApp.Assigment3
 {
-    internal class Program
+    public class Program
     {
         public static void Main(string[] args)
         {
-
-            string str;
-            int fb1, fb2, fb;
-            Console.Write("nhap so n: ");
-            //str = Console.ReadLine();
-            int n = Convert.ToInt32(Console.ReadLine());
-            fb = 0;
-            fb1 = 1;
-            fb2 = 1;
-            while(fb1 +  fb2 < n)
+            int id, qty, price, choice;
+            string name, image, desc;
+            Cart cart = new Cart(1,"NguyenVanA",0,"hanoi","vietnam");
+            do
             {
-                fb = fb1 + fb2;
-                fb2 = fb1;
-                fb1 = fb;
-            }
-            Console.Write("So fibonaci lon nhat nho hon n la: ");
-            Console.WriteLine(fb1);
+                Console.WriteLine("1: Add product:");
+                Console.WriteLine("2: Remove Product:");
+                Console.WriteLine("3: GrandTotal Cal: ");
+                Console.WriteLine("4: Show Info");
+                Console.WriteLine("5: Exit");
+                Console.WriteLine();
+                Console.WriteLine("Enter choice:");
+                choice = Convert.ToInt32(Console.ReadLine());
+                switch (choice)
+                {
+                    case 1: 
+                        Console.WriteLine("Enter ID:");
+                        id = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Enter name:");
+                        name = Convert.ToString(Console.ReadLine());
+                        Console.WriteLine("Enter price:");
+                        price = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Enter qty:");
+                        qty = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Enter image:");
+                        image = Convert.ToString(Console.ReadLine());
+                        Console.WriteLine("Enter desc:");
+                        desc = Convert.ToString(Console.ReadLine());
+                        cart.addProduct(new Product(id,name,price,qty,image,desc));
+                        break;
+                    case 2: 
+                        cart.removeProduct();
+                        break;
+                    case 3: 
+                        cart.grandTotalCal();
+                        break;
+                    case 4:
+                        cart.showInfo();
+                        break;
+                    case 5: 
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Wrong choice please choice 1-5!");
+                        break;
+                }
+            } while (choice != 5);
         }
     }
 }
