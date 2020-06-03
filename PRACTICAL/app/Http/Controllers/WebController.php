@@ -1,19 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Book;
 use Illuminate\Http\Request;
 
-class WebController extends Controller
+class Webcontroller extends Controller
 {
-    public function home(Request $request)
-    {
-        $books = Book::all();
-        return view("home", [
-            "books" => $books
-        ]);
+    public function listBook(){
+        $books = Book::paginate(10);
+        return view('library.list',compact('books'));
+
     }
-
-
+    public function search(Request $request)
+    {
+        $books = Book::where("title",$request->name_title)->paginate(10);
+        return view("library.list",compact("books"));
+    }
 }

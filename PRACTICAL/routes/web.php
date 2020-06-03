@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
+
 });
-Route::get('/home', 'WebController@home');
-Route::get('/new-book', 'WebController@newBook');
-Route::post('/save-book', 'WebController@saveBook');
+Route::get("list-book","WebController@listBook");
+Route::post("/searh-title","WebController@search")->name("search");
