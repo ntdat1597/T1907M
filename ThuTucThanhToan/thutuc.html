@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thủ tục thanh toán</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/5ab9e47078.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--    <link rel="stylesheet" type="text/css" href="checkout.css">-->
+    <!--    <link rel="stylesheet" type="text/css" href="../CSS/home.css">-->
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            font-family: 'Lato', sans-serif;
+        }
+        /*header*/
+        header{
+            background-color:#283441;
+            height: 140px;
+            padding: 10px;
+        }
+        header .logo img{
+            max-width: 70%;
+        }
+        header .search{
+            margin-top: 30px;
+        }
+        /*section sidebar*/
+        .sidebar{
+            padding: 0 0 30px 0;
+            color: white;
+        }
+        .sidebar ul li{
+            list-style: none;
+            text-decoration: none;
+            font-size: 17px;
+            text-transform: uppercase;
+        }
+        .sidebar a{
+            color: white;
+            text-decoration: none;
+        }
+        .menu .menu-item a:hover{
+            color: #dddddd;
+        }
+        .submenu{
+            display: none;
+            background-color: white;
+            width: 650px;
+            padding: 20px;
+            line-height: 30px;
+            z-index: 20;
+            position: absolute;
+            border-radius: 10px;
+        }
+
+
+
+        /*vedautrang*/
+        .vedautrang{
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 50px;
+        }
+
+        /*lien he*/
+        .contact1 ul li{
+            list-style: none  ;
+            line-height: 35px;
+        }
+        .contact2 a .fab{
+            color: black;
+            font-size: 50px;
+        }
+
+        /*footer*/
+        footer{
+            background-color: #283441;
+            color: white;
+        }
+        .footer-menu{
+            float: left;
+
+        }
+        .footer-menu ul a{
+            color: coral;
+            text-decoration: none;
+        }
+        .footer-menu  li{
+            list-style: none;
+        }
+
+        .footer-3{
+            margin-top: 30px;
+        }
+        .footer-3 i{
+            font-size: 40px;
+        }
+        .footer-shipping{
+            border: 1px solid #cdcdcd;
+            padding: 20px;
+            text-align: center;
+            line-height: 40px;
+        }
+        .footer-subcriber{
+            border: 1px solid #cdcdcd;
+            padding: 20px;
+            text-align: center;
+
+
+        }
+        .footer-support{
+            border: 1px solid #cdcdcd;
+            padding: 20px;
+            text-align: center;
+            line-height: 40px;
+        }
+        .footer-bottom{
+            background-color: #181f27;
+            text-align: center;
+            padding: 20px;
+        }
+        .footer-bottom span{
+            color: coral;
+        }
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: auto;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+
+        /* Center the image and position the close button */
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+
+
+        /* The Close Button (x) */
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: red;
+            cursor: pointer;
+        }
+
+        /* Add Zoom Animation */
+        .animate {
+            -webkit-animation: animatezoom 0.6s;
+            animation: animatezoom 0.6s
+        }
+
+        @-webkit-keyframes animatezoom {
+            from {-webkit-transform: scale(0)}
+            to {-webkit-transform: scale(1)}
+        }
+
+        @keyframes animatezoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+
+        /* search form*/
+        form.example input[type=text] {
+            margin-top: 20px;
+            padding: 5px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 85%;
+            background: #f1f1f1;
+        }
+
+        form.example button {
+            float: left;
+            margin-top: 20px;
+            width: 5%;
+            padding: 5px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none;
+            cursor: pointer;
+        }
+
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+        form.example::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        header .shopping{
+            float: left;
+            font-size: 50px;
+        }
+
+
+        .tab-best ul li{
+            float: left;
+            list-style: none;
+            border: 1px solid #e5e5e5;
+            background-color: #f2efea;
+            margin-right: 6px;
+            padding: 0 3px;
+        }
+        .tab-best ul li a:hover{
+            color: #ff791f;
+            text-decoration: none;
+        }
+
+        .item-best-top img{
+            z-index: 2;
+            background-color: #cccccc;
+        }
+        .item-best-top img:hover{
+            opacity: 0.5;
+            cursor: pointer;
+        }
+
+
+        /*cskh*/
+
+        .cskh-left button{
+            width: 75px;
+            height: 30px;
+            background-color: cornflowerblue;
+            margin-bottom: 30px;
+        }
+        .cskh-left h3{
+            margin-top: 30px;
+            margin-bottom: 25px;
+        }
+
+        .prod button{
+            font-size: 20px;
+        }
+        .timkiem-table{
+            width: 95%;
+            float: left;
+        }
+        .timkiem-a{
+            width: 5%;
+            float: left;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: white;
+            font-size: 25px;
+        }
+        .img-loading{
+            text-align: center;
+
+        }
+        .img-loading img{
+            max-width: 50%;
+            width: 10%;
+        }
+        .list button{
+            background-color: coral;
+        }
+        footer a{
+            text-decoration: none;
+            color: coral;
+        }
+        footer a:hover{
+            text-decoration: none;
+        }
+        body{
+            font-family: 'Open Sans', sans-serif;
+        }
+        img{
+            max-width: 100%;
+        }
+        header,section{
+            float: left;
+            width: 100%;
+        }
+        section{
+            background-color: white;
+        }
+        .container h2{
+            text-align: center;
+            font-size: 40px;
+        }
+
+        .right-sidebar{
+            background-color: #ededed;
+            padding: 10px 0 5px 0;
+            line-height: 35px;
+        }
+        .on6 img{
+            width:80px;
+        }
+        .on6, .on1, .on2, .on3, .on4{
+            border-bottom: 1px solid #a2a2a2;
+            box-sizing: border-box;
+            padding:  20px 0 0 0;
+        }
+        .details{
+            font-size: 13px;
+            color: #868686;
+
+        }
+        .right-sidebar{
+            margin-bottom: 100px;
+        }
+
+        .button{
+            background-color: #ededed;
+            padding: 10px 20px;
+            margin-left: 15px;
+            transition: 400ms;
+            color: #337ab7;
+        }
+        .button:hover{
+            background-color: #5f778f;
+            color: white;
+        }
+        .on7{
+            line-height: 15px;
+        }
+        .on8{
+            padding: 20px 0 0 0 ;
+        }
+        .buttonorder{
+            border: 1px solid #afafaf;
+            background-color: #ededed;
+            transition: 400ms;
+        }
+        .buttonorder:hover{
+            background-color: #5f778f;
+            color: white;
+        }
+        * {
+            box-sizing:border-box
+        }
+        h3 {
+            text-align: center;
+
+        }
+        /* Slideshow container */
+        .slideshow-container {
+            width: 25%;
+            position: relative;
+            margin: auto;
+
+        }
+        /* Ẩn các slider */
+        .mySlides {
+            display: none;
+        }
+        /* Định dạng nội dung Caption */
+        .text {
+            color: black;
+            font-size: 20px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+
+        /* khi được hover, active đổi màu nền */
+        .active, .dot:hover {
+            background-color: #717171;
+
+        }
+
+        .mySlides img{
+            width:100%;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row">
+            <div class=" logo col-md-2 col-sm-3 col-xs-5">
+            </div>
+        </div>
+    </div>
+</header>
+<section>
+    <div class="container col-md-12 col-sm-12">
+        <h2><b>Thông Tin Khách Hàng</b></h2>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="form col-md-5 col-sm-12">
+            <div class="row">
+                <div class="container col-md-12 col-md-12">
+                    <form action="#">
+                        <div class="form-group col-md-6 ">
+                            <lable for="name">Họ:</lable>
+                            <input type="text" class="form-control" id="fname" name="name">
+                        </div>
+                        <div class="form-group col-md-6 ">
+                            <lable for="name">Tên:</lable>
+                            <input type="text" class="form-control" id="lsame" name="name">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="eml">Email:</label>
+                            <input type="email" class="form-control" id="eml"  name="eml" placeholder="user@example.com" required>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="num">Số điện thoại:</label>
+                            <input type="number" class="form-control" id="num"  name="num">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="add">Địa chỉ nhà:</label>
+                            <input type="text" class="form-control" id="add" name="add" placeholder="Số nhà / Tên phố(đường)...">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <b>Quận(Huyện):</b>
+                            <select class="form-control col-md-6">
+                                <option> Hoàn Kiếm</option>
+                                <option> Hai Bà Trưng</option>
+                                <option> Tây Hồ</option>
+                                <option> Cầu Giáy</option>
+                                <option> Nam Từ Niêm </option>
+                                <option> Bắc Từ Niêm</option>
+                                <option> Đống Đa</option>
+                                <option> Ba Đình</option>
+                                <option> Hoài Đức</option>
+                                <option> Thanh Xuân</option>
+                                <option> Hà Đông</option>
+                                <option> Sơn Tây</option>
+
+
+                            </select>
+
+                        </div>
+                        <div class="form-group col-md-4">
+                            <b>Tỉnh:</b>
+                            <select class="form-control col-md-6">
+                                <option> Ha Noi</option>
+                                <option> Hai Phong</option>
+                                <option> Vinh</option>
+                                <option> Da Nang</option>
+                                <option> Sai Gon</option>
+                            </select>
+
+                        </div>
+                        <div class="form-group col-md-12">
+                            <b>Ghi chú cho chúng tôi:</b><input type="text" placeholder="Ghi chú về đơn hàng của bạn, ví dụ: yêu cầu đặc biệt giao hàng.">
+                            <div><input type="checkbox" class="check col-md-1"> Tôi đồng ý với đơn hàng!</div>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="right-sidebar col-md-5">
+            <div class="on1 col-md-12">
+                <div class="product col-md-6"><b>Sản Phẩm</b></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6"></div>
+                <div class="name-product col-xs-6"><b>GIÀY ULTRABOOST 20</b></div>
+                <img src="../images/Giay_UltraBoost_20_Mau_djen_EG0692_01_standard.jpg" height="200" width="200" />
+                <img src="../images/Giay_UltraBoost_20_Mau_djen_EG0692 (1).jpg" height="200" width="200"/>
+                <img src="../images/Ultraboost_20_Shoes_Black_EG0692_07_standard.jpg" height="200" width="200"/>
+            </div>
+
+            <div class="on3 col-md-12">
+                <div class="sub col-md-4"><b>Thành Tiền</b></div>
+                <div class="total col-md-8"><span class="giatien"><b>5.000.000</b></span></div>
+            </div>
+            <div class="on6 col-md-12"><label><input type="checkbox" ><b>Chuyển khoản trực tiếp<br/></b><span class="on6-under col-md-12"><span class="details">Thanh toán trực tiếp vào tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng ID đơn hàng của bạn làm tài liệu tham khảo thanh toán. Đơn hàng của bạn sẽ không được giao cho đến khi tiền đã được xóa trong tài khoản của chúng tôi.</span></span></label></div>
+            <div class="on6 col-md-12"><label><input type="checkbox" ><b>Thẻ tín dụng <img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg"> </b></label></div>
+            <div class="on6 col-md-12"><label><input type="checkbox" ><b>Thẻ ngân hàng</b></label></div>
+            <div class="on7 col-md-12"><label><span class="details">Dữ liệu cá nhân của bạn sẽ được sử dụng để xử lý đơn đặt hàng của bạn, hỗ trợ trải nghiệm của bạn trên trang web này và cho các mục đích khác được mô tả trong chính sách bảo mật của chúng tôi.</span></label></div>
+            <div class="on8 col-md-12"><label><input type="checkbox"><span class="details">Tôi đã đọc và đồng ý với các điều khoản và điều kiện! </span></label> </div>
+            <button onclick="dathangthanhcong()"  class="buttonorder" type="submit" ><a href="#">ĐẶT HÀNG</a></button>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</section>
+
+<footer>
+    <div class="container-full" style="background-color: #3E4551; padding: 30px">
+        <div class="container">
+            <div class="row">
+                <div class="footer-3 col-md-12">
+                    <div class="row">
+                        <div class="footer-shipping col-md-4">
+                            <i class="fas fa-rocket"></i>
+                            <p>GIAO HÀNG MIỄN PHÍ</p>
+                            <p>SHIPPING FREE</p>
+                        </div>
+                        <div class="footer-subcriber col-md-4">
+                            <p>ĐĂNG KÝ NHẬN TIN KHUYẾN MẠI</p>
+                            <form action="//demo.fieldthemes.com/ps_aruna/home1/en/" method="post">
+                                <div class="form-group"><input class="inputNew form-control grey newsletter-input"
+                                                               id="newsletter-input" type="text" name="email" size="18"
+                                                               placeholder="Email của bạn">
+                                    <button type="submit" name="submitNewsletter" class="btn btn-default button button-small">
+                                        <span>Subscribe</span></button>
+                                    <input type="hidden" name="action" value="0"></div>
+                            </form>
+                        </div>
+                        <div class="footer-support col-md-4">
+                            <i class="fab fa-whatsapp"></i>
+                            <p>Hotline</p>
+                            <p>0123 - 456 - 789</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="vedautrang"><i class="fas fa-arrow-circle-up"></i></a>
+</footer>
+</body>
+<script type="text/javascript" src="../js/homejs.js"></script>
+
+</html>
