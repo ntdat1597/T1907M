@@ -1,0 +1,157 @@
+<ui:composition template="/template/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+
+        <h:form id="frmTBLNhanVien">
+            <p:panel id="toggleable" header="Danh sách nhân viên"
+                     styleClass="card">
+                <div class="form-group">
+                    <p:commandButton value="Thêm" oncomplete="PF('formThem').show();"
+                                     actionListener="#{qlTaiKhoanController.prepareInsert()}"
+                                     update="formThem" resetValues="true" />
+                </div>
+
+                <div style="height: 20px"/>
+                <p:outputPanel>
+                    <p:dataTable id="tblNhanVien" paginator="true" rows="10"
+                                 value="#{qlTaiKhoanController.list}" var="nhanvien" scrollable="true"
+                                 paginatorPosition="bottom" rowsPerPageTemplate="5,10,20"
+                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 emptyMessage="#{msg['datatable.label.notfound']}">
+                        <f:facet name="header">
+                            <p:outputPanel style="text-align: left;">
+                                <h:outputText
+                                        value="Tổng số bản ghi : #{qlTaiKhoanController.list.size()}"></h:outputText>
+                            </p:outputPanel>
+                        </f:facet>
+                        <h2 style="color: #3d5640">
+                            <i class="fa fa-fw fa-users"/> Thêm Mới Nhân Viên
+                        </h2>
+
+                        <p:column width="250" headerText="Thao tác">
+                            <p:commandButton value="Sửa" onclick="PF('dlg2').show();"/>
+                            <p:dialog header="Form Sửa" widgetVar="dlg2" minHeight="30" closable="true"
+                                      resizable="false" closeOnEscape="true">
+                                <h:panelGrid columns="4" cellpadding="4">
+
+                                    <h:outputLabel value="Name:" style="font-weight:bold"/>
+                                    <p:inputText value="#{nhanvien.fullName}"/>
+
+                                    <h:outputLabel value="TenTaiKhoan:" style="font-weight:bold"/>
+                                    <p:inputText value="#{nhanvien.userName}"/>
+
+                                    <h:outputLabel value="MatKhau:" style="font-weight:bold"/>
+                                    <p:inputText value="#{nhanvien.passWord}"/>
+
+                                    <h:outputLabel value="VaiTro:" style="font-weight:bold"/>
+                                    <h:selectOneMenu value="#{nhanvien.role}" required="true" label="Text 2">
+                                        <f:selectItem itemLabel="Quản Trị" itemValue="null"/>
+                                        <f:selectItem itemLabel="Nhân Viên" itemValue="null"/>
+                                    </h:selectOneMenu>
+
+
+                                    <h:outputLabel value="Email:" style="font-weight:bold"/>
+                                    <p:inputText value="#{nhanvien.email}"/>
+
+                                    <h:outputLabel value="GioiTinh:" style="font-weight:bold"/>
+                                    <h:selectOneMenu value="#{nhanvien.gender}" required="true" label="Text 2">
+                                        <f:selectItem itemLabel="Nam" itemValue="null"/>
+                                        <f:selectItem itemLabel="Nữ" itemValue="null"/>
+                                    </h:selectOneMenu>
+
+                                    <h:outputLabel value="SDT:" style="font-weight:bold"/>
+                                    <p:inputText value="#{nhanvien.phone}"/>
+
+                                    <h:outputLabel value="CaLamViec:" style="font-weight:bold"/>
+                                    <h:selectOneMenu value="#{nhanvien.caLamViec}" required="true"
+                                                     label="Text 2">
+                                        <f:selectItem itemLabel="Ca Sáng" itemValue="null"/>
+                                        <f:selectItem itemLabel="Ca Chiều" itemValue="null"/>
+                                        <f:selectItem itemLabel="Cả Ngày" itemValue="null"/>
+                                    </h:selectOneMenu>
+
+
+                                    <h:outputLabel value="NgayLamViec:" style="font-weight:bold"/>
+                                    <p:inputText value="#{nhanvien.created}"/>
+
+
+                                    <h:outputLabel value="TrangThai:" style="font-weight:bold"/>
+                                    <p:inputText value="#{nhanvien.status}"/>
+
+
+                                </h:panelGrid>
+
+
+                            </p:dialog>
+
+                            <p:commandButton value="Xóa" onclick="PF('dlg3').show();"/>
+                            <p:dialog header="Form Xóa" widgetVar="dlg3" minHeight="500" width="700" closable="true"
+                                      resizable="false" closeOnEscape="true">
+                                <p:commandButton value="#{msg['common.button.label.delete']}"
+                                                 icon="fa fa-fw fa-remove" style="text-align:center;"
+                                                 actionListener="#{qlTaiKhoanController.onDelete(nhanvien)}"/>
+
+                            </p:dialog>
+
+                        </p:column>
+
+                        <p:column width="200" headerText="Họ và Tên">
+                            <h:outputText value="#{nhanvien.fullName}"></h:outputText>
+                        </p:column>
+
+                        <p:column width="150" style="text-align:left" headerText="Vai trò">
+                            <h:selectOneMenu value="#{nhanvien.role}" required="true" label="Text 2">
+                                <f:selectItem itemLabel="Quản Trị Viên" itemValue="null"/>
+                                <f:selectItem itemLabel="Nhân Viên" itemValue="null"/>
+
+                            </h:selectOneMenu>
+                        </p:column>
+
+                        <p:column width="150" style="text-align:left"
+                                  headerText="Ca làm việc">
+                            <h:selectOneMenu value="#{nhanvien.caLamViec}" required="true" label="Text 2">
+                                <f:selectItem itemLabel="Ca Sáng" itemValue="null"/>
+                                <f:selectItem itemLabel="Ca Chiều" itemValue="null"/>
+                                <f:selectItem itemLabel="Cả Ngày" itemValue="null"/>
+                            </h:selectOneMenu>
+                        </p:column>
+
+                        <p:column width="250" headerText="Tên tài khoản">
+                            <h:outputText value="#{nhanvien.userName}"></h:outputText>
+                        </p:column>
+
+                        <p:column width="250" headerText="Trạng Thái">
+                            <h:outputText value="#{nhanvien.status}"></h:outputText>
+                            <h:selectOneMenu value="#{nhanvien.status}" required="true" label="Text 2">
+                                <f:selectItem itemLabel="Đớp Và Ngủ" itemValue="null"/>
+                                <f:selectItem itemLabel="Đớp Và Ỉa " itemValue="null"/>
+                            </h:selectOneMenu>
+                        </p:column>
+
+
+                        <p:column width="250" headerText="Email">
+                            <h:outputText value="#{nhanvien.email}"></h:outputText>
+                        </p:column>
+
+                        <p:column width="100" headerText="Giới tính">
+                            <h:selectOneMenu value="#{nhanvien.gender}" required="true" label="Text 2">
+                                <f:selectItem itemLabel="Nam" itemValue="null"/>
+                                <f:selectItem itemLabel="Nữ" itemValue="null"/>
+                            </h:selectOneMenu>
+                        </p:column>
+
+                        <p:column width="100" headerText="Số điện thoại">
+                            <h:outputText value="#{nhanvien.phone}"></h:outputText>
+                        </p:column>
+
+                    </p:dataTable>
+                </p:outputPanel>
+            </p:panel>
+            <ui:include src="add-nv-dialog.xhtml"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
